@@ -176,14 +176,15 @@ h6, .h6 {
 }
 
 .code img {
-  width: 20rem;
-  height: 20rem;
+  width: 50%;
+  height: auto;
   transform: scale(1);
   transition: all 0.5s linear;
+  display: inline-block;
 }
 
 .code img.active {
-  transform: scale(4);
+  transform: scale(2);
   position: absolute;
   z-index: 999;
 
@@ -268,9 +269,9 @@ p {
   padding:10px;
   position: relative;
 }
-.vueWrap{
+/* .vueWrap{
   height:400px;
-}
+} */
 .vueShow1:before,
 .vueShow1:after{
   content:'';
@@ -300,6 +301,7 @@ p {
   align-items: flex-start;
   justify-content:space-around;
 }
-/* .vueWrap{
+.vueWrap{
   height:400px;
-} */
+  overflow: auto;
+}
