@@ -1,0 +1,14 @@
+1:$ git config --global user.name "Eric"
+2:$ git config --global user.email "1184562964@qq.com"
+3:$  cd  通过$ cd 找到你要建立库的文件
+4:$ mkdir 仓库名称
+5:$ cd 仓库名称
+6:$ pwd         //查看目录
+7:$ git init      //创建.git
+8:$ add          //将一个文件放入暂存区
+9:$ git commit -m '备注'   //提交文件
+10:$ git status   //查看文件情况
+11: $ ssh-keygen -t rsa -C "1184562964@qq.com" //获取ssh
+12:id_rsa.pub 复制 前往github进行远程仓库绑定
+13:$ git remote add origin https://github.com/Eric-yxs/xxx.git //本地库与github远程库绑定
+14:$git push origin master  //上传本地文件（或修改的内容）去github更新
