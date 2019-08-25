@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="blog.css">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+    <script src="vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div class="blog-masthead">
+            <!-- 顶部导航栏 -->
+            <div class="container">
+                <div class="blog-nav">
+                    <a href="#" class="blog-nav-item" @click.prevent="way=shouye">首页</a>
+                    <a href="#" class="blog-nav-item" @click.prevent="way=html5">HTML5</a>
+                    <a href="#" class="blog-nav-item" @click.prevent="way=css">CSS</a>
+                    <a href="#" class="blog-nav-item" @click.prevent="way=js">Javascript</a>
+                    <a href="#" class="blog-nav-item" @click.prevent="way=vue">Vue.js</a>
+                    <a href="#" class="blog-nav-item" @click.prevent="way=bs">Bootstrap</a>
+                </div>
+            </div>
+        </div>
+
+        <component :is="way"></component>
+    </div>
+    <!-- 首页内容组件 -->
+    <template id="temp">
+        <div>
+            <div class="container">
+                <div class="blog-header">
+                    <h2 class="blog-title">
+                        欢迎来到艾瑞克杨先森的学习基地
+                    </h2>
+                    <p class="lead blog-description">
+                        杨先森是一个零基础自学前端，并想找到一份工作的大学生，我会这里分享一些，我这一年多来，学习前端技术的问题及解决方案。
+                    </p>
+                </div>
+                <div class="row">
+                    <div class="col-sm-8 blog-main">
+                        <div class="blog-post">
+                            <h3 class="blog-title">
+                                这是第一条博客
+                            </h3>
+                            <p class="blog-post-meta">
+                                2019.08.19 by
+                                <a href="#">杨先森</a>
+                            </p>
+
+                            <p>
+                                在这第一条博客以下，是我为什么坚持要转行学习前端，我是如何学习前端的，以及一些前端技术的介绍和解释。
+                            </p>
+                            <hr>
+                            <p>
+                                one year ago,when I was a sophomore I recognized that the major I learned is tiresome.
+                                Because it require us to study further
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+                        <div class="sidebar-module sidebar-module-inset">
+                            <h4>关于</h4>
+                            <p>杨先森:
+                                目前在读大四学生，随着毕业的来领，就业也成为了一个大问题。由于高考志愿的不如意，我来到了环境工程专业，而我个人是更中意计算机专业。因此开始了自学之旅。
+                            </p>
+                        </div>
+                        <div class="sidebar-module">
+                            <h4>导航</h4>
+                            <ol class="list-unstyled">
+                                <li>
+                                    <a href="#">HTML5</a>
+
+                                </li>
+                                <li>
+                                    <a href="#">HTML5</a>
+                                </li>
+                                <li>
+                                    <a href="#">HTML5</a>
+                                </li>
+                                <li>
+                                    <a href="#">HTML5</a>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </template>
+    <!-- HTML5内容组件 -->
+    <template id="temp1">
+        <div>
+            <div class="container">
+                <div class="blog-header">
+                    <h2>
+                        HyperText Markup Language
+                    </h2>
+                    <p class="lead blog-description">
+                        超文本标记语言是一种用于创建网页的标准标记语言。
+                    </p>
+                </div>
+                <div class="blog-post">
+                    <h3 class="blog-title">学习HTML</h3>
+                    <p class="blog-post-meta">
+                        2019.08.19 by
+                        <a href="#">杨先森</a>
+                    </p>
+                    <p>
+                        学习HTML，非常<em><strong>简单！</strong></em>所以在这里就不细说了。不过在学习过程中要注意以下几点。
+                    </p>
+                    <hr>
+                    <h2>注意！</h2>
+                    <p><strong>1</strong>:对于中文网页需要使用 &lt;meta charset="utf-8"&gt; 声明编码，否则会出现乱码。有些浏览器(如 360 浏览器)会设置 GBK
+                        为默认编码，则你需要设置为 &lt;meta charset="gbk"&gt;。</p>
+                    <p><strong>2</strong>:HTML中不支持 空格、回车、制表符，它们都会被解析成一个空白字符。</p>
+                    <p><strong>3</strong>:&lt;!doctype html&gt; 声明必须位于 HTML5 文档中的第一行,使用非常简单</p>
+                    <p><strong>4</strong>:HTML 大小写不敏感，不区分大小写，也就是说大小写都不影响。但根据W3C的规范写法，一般使用小写。</p>
+                    <p>同时在这里补充一下:CSS大小写不敏感，也不区分大小写。但根据W3C的规范写法，一般使用小写。JavaScript 对大小写非常敏感，一定要区分大小写。</p>
+                    <!-- <iframe width="100%" height="300" src="https://c.runoob.com/iframe/3129"
+                        allowfullscreen="allowfullscreen" frameborder="0"></iframe> -->
+                </div>
+            </div>
+        </div>
+    </template>
+    <!-- CSS内容组件 -->
+    <template id="temp2">
+        <div>
+            <div class="container">
+                <div class="blog-header">
+                    <h2>
+                        CSS3
+                    </h2>
+                    <p class="lead blog-description">CSS 用于控制网页的样式和布局。</p>
+                </div>
+                <div class="blog-post">
+                    <h3>学习CSS3</h3>
+                    <p class="blog-post-meta">
+                        2019.08.19 by <a href="#">杨先森</a>
+                    </p>
+                    <p>学习CSS可以让我们的页面变得更加漂亮，美观。但是HTML5与CSS3这两个都是属于页面的外表，很容易掌握。页面的灵魂还是在于JS。所以CSS3也不做多的介绍</p>
+                    <hr>
+                    <h2>CSS居中总结!</h2>
+                    <p class="blog-post-meta">相信有很多学习CSS的同学都会遇到这个问题，CSS的居中应该是CSS的重点，所以我在这里，对我的学习CSS居中情况来个小小的总结。</p>
+                    <p class="littleTitle">1：单行行内元素，父元素设置line-height和height高度一样，就可以实现垂直居中,如图:</p>
+                    <div class="code">
+                        <img src="images/code1.png" alt="代码图">
+                    </div>
+                    <p>效果如下：</p>
+                    <div class="code">
+                        <img src="images/showimg.png" alt="效果图">
+                    </div>
+                    <p class="littleTitle">
+                        2：当情况是多行行内元素垂直居中的时候，则需要设置父元素line-height和height高度一样，子元素设置display:inline-block;vartical-align:middle以及line-height:1.5,如图：
+                    </p>
+                    <div class="code">
+                        <img src="images/code2.png" alt="代码图">
+                    </div>
+                    <p>效果如下：</p>
+                    <div class="code">
+                        <img src="images/showimg2.png" alt="效果图">
+                    </div>
+                    <p class="littleTitle">3：此方法对单行，多行均有效，即设置父元素padding上下内边距相等，如图:</p>
+                    <div class="code">
+                        <img src="images/code3.png" alt="代码图">
+                    </div>
+                    <p>效果如下，<strong>但此方法有一缺点即无法确定父元素的高度：</strong></p>
+                    <div class="code">
+                        <img src="images/showimg3.png" alt="效果图" style="padding-top:-5px;">
+                    </div>
+                    <p class="littleTitle">4：面对块级元素，首先想到的就是flexbox盒子了。具体实现代码如下：</p>
+                    <div class="code">
+                        <img src="images/code4.png" alt="代码图">
+                    </div>
+                    <p>效果如下，非常好用:</p>
+                    <div class="code">
+                        <img src="images/showimg4.png" alt="效果图">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </template>
+    <!-- JS内容组件 -->
+    <template id="temp3">
+        <div>
+            <div class="container">
+                <div class="blog-header">
+                    <h2>Javascript</h2>
+                    <p class="blog-description">
+                        JavaScript 是 Web 的编程语言。
+                    </p>
+                </div>
+                <div class="jsShow">
+                    <div @click="flag=!flag" class="wrap" :class="{'active':flag}">
+                        <h3>接触的第一个JS</h3>
+                        <p class="blog-post-meta">
+                            2019.08.20 by <a href="#">杨先森</a>
+                        </p>
+                        <p>刚接触JS时，尽管是一个容易的逻辑，但还是难倒我一段时间，各种查资料，百度看解析，到最后解决问题，还是非常有成就感的，我相信很多自学的同学也会有同样的感受。<br>
+                            那么话不多说，一起来看看我的第一个JS代码是什么吧！这是一篇技术文！！！</p>
+                    </div>
+                    <!-- 通过动画实现下拉内容 -->
+                    <transition>
+                        <div class="jsmain" v-if="flag">
+                            <h4>第一个JS任务</h4>
+                            <p>完成九宫图随机闪烁三种颜色,效果如图：</p>
+                            <div class="code">
+                                <img src="images/task1.png" alt="任务一" :class="{'active':magnify1}"
+                                    @click="magnify1=!magnify1">
+                            </div>
+                            <p>实现效果，当点击开始按钮，九宫格随机三块随机颜色闪动，当点击停止时，停止闪动。<br>
+                                其实，要实现这个效果的逻辑的难点就在如何随机的取三块。<br>
+                                如果大家和我一样遇到不懂的问题就百度，那么大家就会发现这个洗牌算法。关于洗牌算法，我这里就不多解释了，大家可以从百度上学习。不懂就百度是一个程序员的基本准则啊。<br>
+                                那么，我到底是如何实现的呢？我来给大家分析一下：</p>
+                            <div class="code">
+                                <img src="images/code5.png" alt="代码图" :class="{'active':magnify}"
+                                    @click="magnify = !magnify">
+                            </div>
+                            <p>从上面这张图，我给出了我九宫格的布局以及命名，以便大家理解接下来的代码。在这张图的最后，是业务逻辑的前两步，1：获取DOM，2：重置九宫格颜色。<br>
+                                在完成这些之后，我们就可以运用我们刚学的洗牌算法了。</p>
+                            <div class="code">
+                                <img src="images/code6.png" alt="代码图" :class="{'active':magnify2}"
+                                    @click="magnify2=!magnify2">
+                            </div>
+                            <p>随机获取颜色，相信大家都会，关于我洗牌算法，我是这样理解的，1：先创建一个新数组 a
+                                ，因为我们只需要取三个随机数，所以2：我们只要循坏三次，每次取一个随机数，再进行判断，3：如果在a数组中没有这个随机数，
+                                就将这个随机数放入 a 数组中，有的话就重新来。4：这样我们 a 数组中就有了三个随机数，这样我们就能获得这三个随机数对应的宫格了。只要给宫格上随机的颜色就大功告成了。
+                            </p>
+                            <p>就剩最后一步了，设置一个定时器，循环这样的操作，就实现我们的效果了。</p>
+                            <div class="code">
+                                <img src="images/code7.png" alt="代码图" :class="{'active':magnify3}"
+                                    @click="magnify3=!magnify3">
+                            </div>
+                            <p>这个就是我第一次接触的JS了，看完是不是觉得特别简单，但还是花了我不少时间取琢磨。不过为了能找到工作，这点苦有算什么！！我们一定要努力啊。</p>
+                        </div>
+                    </transition>
+                </div>
+                <hr>
+                <div class="jsShow">
+                    <div class="wrap" @click="flag2=!flag2" :class="{'active':flag2}">
+                        <h3>运用JS制作相册</h3>
+                        <p class="blog-post-meta">
+                            2019.08.21 by <a href="#">杨先森</a>
+                        </p>
+                        <p>
+                            在简单学习了JS后，我就会找一些实例来练习，有这样一种相册，相信大家都见过，点击图片放大，然后左右有上一张下一张按钮，点击切换图片。而我做的，应该就是简易版的相册。
+                            做法相对简单，在这一篇文章，我就只跟大家说一下业务逻辑，有不对的地方还请见谅。
+                        </p>
+                    </div>
+                    <div class="jsmain" v-if="flag2">
+                        <h4>简易相册逻辑</h4>
+                        <p>话不多说，直接上码了：</p>
+                        <div class="code">
+                            <img src="images/code8.png" alt="代码图" :class="{'active':magnify4}"
+                                @click="magnify4=!magnify4">
+                        </div>
+                        <p>代码还是很好理解的，至于具体的相册内容，因为私人原因，在下就不在这里展开了，大家不懂就百度，准没错！</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+    <!-- Vue内容组件 -->
+    <template id="temp4">
+        <div>
+            <div class="container">
+                <div class="blog-header">
+                    <h2>
+                        Vue.js
+                    </h2>
+                    <p class="lead blog-description">
+                        一套用于构建用户界面的渐进式框架。
+                    </p>
+                </div>
+                    <div>
+                        <h3>这是一个基于Vue.js建成的网站！</h3>
+                        <p class="blog-post-meta">
+                            2019.08.22 by <a href="#">杨先森</a>
+                        </p>
+                        <p>
+                            之前在学了前端知识后，就经常找一些网站实例练习一下。在学习了Vue.js之后，发现用Vue.js确实要方便不少。也正是在学习了Vue.js之后，我才有想法建这个页面。和大家一起分享一下我的学习过程。
+                            因为，我实在使太无聊了。想想就开心，哈哈哈哈。
+                        </p>
+                        <p>大家可以查看源码，看看我是如何运用Vue.js的，只是一点皮毛，还请大家多多包涵。有什么不足的可以联系我！<a href="#" @click="email">杨先森</a></p>
+                    </div>
+                <hr>
+                <div class="vueContent">
+                    <!-- 点击实现下拉 -->
+                    <div class="vueShow1" :class="{'active':isChoose}">
+                        <div class="vueWrap" @click="isChoose=!isChoose">
+                            <h3>我的学习方法！！</h3>
+                            <p class="blog-post-meta">
+                                2019.08.22 by <a href="#">杨先森</a>
+                            </p>
+                            <p>Vue.js有一个主张，就是尽量避免我们直接操作DOM。这句话相信大家学过JS的都应该清楚，也就是说在使用Vue.js的时候，我们不要出现document.getElementById()这类话。
+                                而我的学习方法就是围绕这一点来学习的。
+                            </p>
+
+
+                            <h4>VUE与原生JS相结合</h4>
+                            <p>正如我前面所说，VUE的主张是不喜欢我们直接操作DOM，所以，我在做VUE的一些实例时，会用原生的JS再写一遍，实现一样的效果。
+                                这样，在学习VUE的同时，也复习了JS，毕竟原生JS才应该是前端程序员的基本！
+                            </p>
+                            <p>下面我来举个例子:</p>
+                            <p>我们先通过VUE来实现一个跑马灯的效果。</p>
+                            <p>点击下拉</p>
+                        </div>
+                        <!-- 实现下拉 -->
+                        <div v-if="isChoose">
+                            <p>这次先来代码图:</p>
+                            <div class="code">
+                                <img src="images/code9.png" alt="代码图" :class="{'active':magnify5}"
+                                    @click="magnify5=!magnify5">
+                            </div>
+                            <p>理解之后，再来看看原生JS代码图:</p>
+                            <div class="code">
+                                <img src="images/code10.png" alt="代码图" :class="{'active':magnify6}"
+                                    @click="magnify6=!magnify6">
+                            </div>
+                            <p>对比之后，我们发现其实两个都差不多，但我这么做的原因就是想多练习一下JS，希望大家会喜欢。</p>
+                        </div>
+
+                    </div>
+                    <div class="vueShow1" :class="{'active':isChoose2}">
+                        <div class="vueWrap" @click="isChoose2=!isChoose2">
+                            <h3>Vue动画的应用</h3>
+                            <p class="blog-post-meta">
+                                2019.08.22 by <a href="#">杨先森</a>
+                            </p>
+                            <p>
+                                在Vue.js的官网中，关于VUE动画，有这么一张图：
+                            </p>
+                            <div class="code">
+                                <img src="images/vue1.png" alt="VUE动画" :class="{'active':magnify7}"
+                                    @click="magnify7=!magnify7">
+                            </div>
+                            <p>这个就是VUE对于动画的解释图，从图上我们不难发现，v-enter和v-leave-to的状态应该是一样的。所以我们在设置动画的时候，可以把v-enter与v-leave-to设置状态相同。
+                                <br>
+
+                            </p>
+                        </div>
+                        <div v-if="isChoose2">
+                            <p>如图:</p>
+                            <div class="code">
+                                <img src="images/code11.png" alt="代码图" :class="{'active':magnify8}"
+                                    @click="magnify8=!magnify8">
+                            </div>
+                            <p>这样，我们就能通过 &lt;transition&gt;来包裹需要实现过渡或者动画的内容</p>
+                            <p>这是第一种方式，这种方式可以用来实现全场的动画。但如果我们只需要半场动画该怎么办。这里VUE又有一种方式，Javascript钩子函数。</p>
+                            <p>见图:</p>
+                            
+                                <div class="code">
+                                    <img src="images/vue2.png" alt="代码图" :class="{'active':magnify9}"
+                                        @click="magnify9=!magnify9">
+                                </div>
+                                <p>具体的使用方法大家可以去VUE官网学习，我在这里贴一张我写的。我这个效果是实现一个类似小球快到碗里来的效果</p>
+                                <div class="code">
+                                    <img src="images/code12.png" alt="代码图" :class="{'active':magnify10}"
+                                        @click="magnify10=!magnify10">
+                                </div>
+                                <p>因为，我只需要小球进碗里就可以了，不需要小球返回，所以是半场动画。所以在这里，我只设置了before-enter,enter,after-enter三个钩子函数。
+                                    在前半场完成了，小球要消失，我设置的是this.flag = !this.flag,有些人可能想到的是el.style.opacity =
+                                    0;设置透明度为零，理论上是没问题的，小球一样会消失。
+                                    但，如果是用透明度的话，小球不会马上消失，而是会停顿一会再消失。这个问题就跟我们没有设置的后半场钩子函数有关了。
+                                </p>
+                                <p>前半场我们通过flag=false 变为 flag=true 小球显形并完场前半场动画，如果我们在前半场不设置this.flag =
+                                    !this.flag，令flag再次等于false，那么就是继续调用后半场，
+                                    但我们后半场是不需要的，所以会有停顿。这里大家要注意一下，我之前也是遇到了这个问题，还好成功解决了。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="vueContent">
+                        <div class="vueShow1">
+                            <div class="vueWrap" :class="{'active':isChoose3}" @click="isChoose3=!isChoose3">
+                                <h3>
+                                    Vue命名视图实现经典布局
+                                </h3>
+                                <p class="blog-post-meta">
+                                    2019.08.23 by <a href="#">杨先森</a>
+                                </p>
+                                <p>
+                                    在学习Vue的过程中，我们会用到vue-router.js这个东西，这个东西就是控制我们路由的。而我们通过路由命名就可以实现经典布局。
+                                    
+                                </p>
+                                <p>首先我们先看一下效果图：</p>
+                                <div class="code">
+                                    <img src="images/vue3.png" alt="效果图" :class="{'active':magnify11}"
+                                    @click="magnify11=!magnify11">
+                                </div>
+                                <p>
+                                    相信这个对于大家来说非常简单，小菜一碟。那么在VUE中，是如何实现的呢。
+                                </p>
+                            </div>
+                        </div>
+                        <div class="vueShow1">
+                            <div class="vueWrap" :class="{'active':isChoose3}" @click="isChoose3=!isChoose3">
+                                <h3>
+                                    Vue命名视图实现经典布局
+                                </h3>
+                                <p class="blog-post-meta">
+                                    2019.08.23 by <a href="#">杨先森</a>
+                                </p>
+                                <p>
+                                    在学习Vue的过程中，我们会用到vue-router.js这个东西，这个东西就是控制我们路由的。而我们通过路由命名就可以实现经典布局。
+                                    
+                                </p>
+                                <p>首先我们先看一下效果图：</p>
+                                <div class="code">
+                                    <img src="images/vue3.png" alt="效果图" :class="{'active':magnify11}"
+                                    @click="magnify11=!magnify11">
+                                </div>
+                                <p>
+                                    相信这个对于大家来说非常简单，小菜一碟。那么在VUE中，是如何实现的呢。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+    </template>
+    <script>
+
+        var shouye = {
+            template: '#temp'
+        }
+        var html5 = {
+            template: '#temp1'
+        }
+        var css = {
+            template: '#temp2'
+        }
+        var js = {
+            data: function () {
+                return {
+                    flag: false,
+                    magnify: false,
+                    magnify1: false,
+                    magnify2: false,
+                    magnify3: false,
+                    magnify4: false,
+                    flag2: false,
+                }
+            },
+            template: '#temp3',
+            methods: {
+
+            }
+        }
+        var vue = {
+            data: function () {
+                return {
+                    magnify5: false,
+                    magnify6: false,
+                    magnify7: false,
+                    magnify8: false,
+                    magnify9: false,
+                    magnify10: false,
+                    isChoose: false,
+                    isChoose2: false,
+                    isChoose3:false,
+                    magnify11:false,
+                }
+            },
+            template: '#temp4',
+            methods: {
+                email() {
+                    alert('邮箱:' + '695249658@qq.com')
+                }
+            }
+        }
+        var bs = {
+            template: '#temp5'
+        }
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                way: shouye,
+
+            },
+            methods: {
+            },
+            component: {
+                shouye,
+                html5,
+                css,
+                js,
+                vue,
+                bs,
+            }
+        })</script>
+</body>
+
+</html>
