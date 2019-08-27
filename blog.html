@@ -57,10 +57,22 @@
                                 关于更新，杨先森会不定时更新一些内容，其中会有一些日常分享和一些技术分享给大家，希望大家会喜欢。
                             </p>
                             <hr>
-                            <p>
-
+                            <h3>
+                                熟能生巧
+                            </h3>
+                            <p class="blog-post-meta">
+                                2019.08.27 by  <a href="#">杨先森</a>
                             </p>
-
+                            <p>在杨先森学习的过程中，一直都知道，编程就是要多练习，多码多想多看。多码能提高写代码的效率，多想能提高代码的质量，多看能提高视野。
+                                杨先森之前看到有一个程序员前辈分享的一句话，<strong>他说在一个项目中，你写的代码能用上的量大概只有你写的10%左右。</strong>他分享完这句话，底下有很多程序员前辈赞成。
+                                这也提醒我，代码质量的重要性，要多思考。</p>
+                            <p>
+                                与此同时，对于我来说，我要通过多码来提高我的熟练度，因此就有了这些。
+                            </p>
+                            <div class="code">
+                                <img src="images/shouye1.png" alt="效果图" :class="{'active':magnify18}" @click="magnify18=!magnify18">
+                            </div>
+                            <p>这还只是一部分，每一部分都是我成为程序员的阶梯。</p>
                         </div>
                     </div>
                     <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
@@ -68,7 +80,7 @@
                             <h4>关于</h4>
                             <p>杨先森:
                                 目前在读大四学生，享受生活，热爱技术，是一个环境专业的自学程序猿。
-                            </p>
+                            </p>                            
                         </div>
                         <div class="sidebar-module">
                             <h4>导航</h4>
@@ -267,6 +279,42 @@
                         <p>代码还是很好理解的，至于具体的相册内容，因为私人原因，在下就不在这里展开了，大家不懂就百度，准没错！</p>
                     </div>
                 </div>
+                <hr>
+                <div class="jsShow">
+                    <div class="wrap" @click="flag3=!flag3" :class="{'active':flag3}">
+                        <h3>原生JS做弹幕效果</h3>
+                        <p class="blog-post-meta">
+                            2019.08.27 by <a hrev="#">杨先森</a>
+                        </p>
+                        <p>
+                            杨先森之前看一个视频是用jQuery做的一个弹幕效果，用jQuery确实要比原生JS做出来简单很多。但不管怎样JS都是我们的基本，所以杨先森看完就在思考原生JS如何
+                            实现弹幕效果。
+                        </p>
+                    </div>
+                    <div class="jsmain" v-if="flag3">
+                        <h4>弹幕效果JS</h4>
+                        <p>让我们上码来分析：</p>
+                        <div class="code">
+                            <img src="images/code16.png" alt="代码图" :class="{'active':magnify15}" @click="magnify15=!magnify15">
+                        </div>
+                        <p>上面是HTML结构，非常的简单，一个弹幕区，一个发射区</p>
+                        <p>接下来是CSS样式：</p>
+                        <div class="code">
+                            <img src="images/code17.png" alt="代码图" :class="{'active':magnify16}" @click="magnify16=!magnify16">
+                        </div>
+                        <p>大家可以把样式设置漂亮一点，我的勉强还能看吧，嘿嘿嘿</p>
+                        <p>接下来就是JS了，如果大家发现你写的JS可以更好更简单，可以联系我<a href="#" @click="email">杨先森</a></p>
+                        <div class="code">
+                            <img src="images/code18.png" alt="代码图" :class="{'active':magnify17}" @click="magnify17=!magnify17">
+                        </div>
+                        <p>有了JS代码图，我来说说实现原理，首先，我们在input输入内容后，我们先要获取到input中的内容，然后我们需要创建一个span标签，
+                            并将input中的内容赋值给span中，然后清空input内容，将span标签插入到弹幕区中去，这样在弹幕区就会有我们的span的内容，
+                            然后就是改变span的样式，让它更好看，同时我们通过position的设置，让span标签出现在不同的高度，还要通过动画让其动起来，实现从右到左飘过的效果。在动画
+                            结束后，我们用一个监听，当动画结束后，就立刻删除span标签。
+                        </p>
+                        <p>至于要记录下弹幕的内容，就是数据库的事情了，在这里我就不多说了。大家快去试试吧！</p>
+                    </div>
+                </div>
             </div>
         </div>
     </template>
@@ -416,39 +464,26 @@
                                 <p>在这里我们来总结一下routes中属性及作用，path表示路由路径，component表示路由对应的组件，redirect表示默认路由路径，components可以一个路径多个组件。</p>
                                 <p>最后在完成布局后，给各个组件添加样式：</p>
                                 <div class="code">
-                                    <img src="images/code15.png" alt="代码图" :class="{'active':magnify14}" @click="magnify13=!magnify14">
+                                    <img src="images/code15.png" alt="代码图" :class="{'active':magnify14}" @click="magnify14=!magnify14">
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="vueShow1">
-                        <div class="vueWrap" :class="{'active':isChoose4}" @click="isChoose3=!isChoose4">
-                            <h3>
-                                Vue命名视图实现经典布局
-                            </h3>
-                            <p class="blog-post-meta">
-                                2019.08.23 by <a href="#">杨先森</a>
-                            </p>
-                            <p>
-                                在学习Vue的过程中，我们会用到vue-router.js这个东西，这个东西就是控制我们路由的。而我们通过路由命名就可以实现经典布局。
-                            </p>
-                            <p>首先我们先看一下效果图：</p>
-                            <div class="code">
-                                <img src="images/vue3.png" alt="效果图" :class="{'active':magnify12}"
-                                    @click="magnify12=!magnify12">
-                            </div>
-                            <p>
-                                相信这个对于大家来说非常简单，小菜一碟。那么在VUE中，是如何实现的呢。
-                            </p>
-                        </div>
-                    </div> -->
                 </div>
             </div>
         </div>
     </template>
+    <template id="temp5">
+
+    </template>
     <script>
 
         var shouye = {
+            data:function(){
+                return {
+                    magnify18:false
+                }
+            },
             template: '#temp'
         }
         var html5 = {
@@ -467,11 +502,17 @@
                     magnify3: false,
                     magnify4: false,
                     flag2: false,
+                    flag3:false,
+                    magnify15:false,
+                    magnify16:false,
+                    magnify17:false,
                 }
             },
             template: '#temp3',
             methods: {
-
+                email(){
+                    alert('邮箱：'+ '695249658@qq.com')
+                }
             }
         }
         var vue = {
