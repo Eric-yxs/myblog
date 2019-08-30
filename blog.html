@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>杨先森的基地</title>
     <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="blog.css">
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet"> -->
     <script src="vue.min.js"></script>
+    <script src="vue-router.js"></script>
 </head>
 
 <body>
@@ -24,15 +25,27 @@
                     <a href="#" class="blog-nav-item" @click.prevent="way=js">Javascript</a>
                     <a href="#" class="blog-nav-item" @click.prevent="way=vue">Vue.js</a>
                     <a href="#" class="blog-nav-item" @click.prevent="way=bs">Bootstrap</a>
+                    <!-- <router-link to="/shouye">首页</router-link>
+                    <router-link to="/html5">首页</router-link>
+                    <router-link to="/css">首页</router-link>
+                    <router-link to="/js">首页</router-link>
+                    <router-link to="/vue">首页</router-link>
+                    <router-link to="/bs">首页</router-link> -->
                 </div>
             </div>
         </div>
-
-        <component :is="way"></component>
+        <!-- <router-view></router-view> -->
+        <!-- <canvas id="cas" position : absolute;z-index : -1;></canvas> -->
+         <component :is="way">
+                    <!-- <canvas id="cas" position : absolute;z-index : -1;></canvas> -->
+        </component>
+        
+        
     </div>
     <!-- 首页内容组件 -->
     <template id="temp">
         <div>
+            <!-- <canvas id="canvas"> -->
             <div class="container">
                 <div class="blog-header">
                     <h2 class="blog-title">
@@ -61,7 +74,7 @@
                                 熟能生巧
                             </h3>
                             <p class="blog-post-meta">
-                                2019.08.27 by  <a href="#">杨先森</a>
+                                2019.08.27 by <a href="#">杨先森</a>
                             </p>
                             <p>在杨先森学习的过程中，一直都知道，编程就是要多练习，多码多想多看。多码能提高写代码的效率，多想能提高代码的质量，多看能提高视野。
                                 杨先森之前看到有一个程序员前辈分享的一句话，<strong>他说在一个项目中，你写的代码能用上的量大概只有你写的10%左右。</strong>他分享完这句话，底下有很多程序员前辈赞成。
@@ -70,7 +83,8 @@
                                 与此同时，对于我来说，我要通过多码来提高我的熟练度，因此就有了这些。
                             </p>
                             <div class="code">
-                                <img src="images/shouye1.png" alt="效果图" :class="{'active':magnify18}" @click="magnify18=!magnify18">
+                                <img src="images/shouye1.png" alt="效果图" :class="{'active':magnify18}"
+                                    @click="magnify18=!magnify18">
                             </div>
                             <p>这还只是一部分，每一部分都是我成为程序员的阶梯。</p>
                         </div>
@@ -80,7 +94,7 @@
                             <h4>关于</h4>
                             <p>杨先森:
                                 目前在读大四学生，享受生活，热爱技术，是一个环境专业的自学程序猿。
-                            </p>                            
+                            </p>
                         </div>
                         <div class="sidebar-module">
                             <h4>导航</h4>
@@ -106,8 +120,9 @@
                     </div>
                 </div>
             </div>
+            <!-- </canvas> -->
         </div>
-        </div>
+
     </template>
     <!-- HTML5内容组件 -->
     <template id="temp1">
@@ -198,7 +213,6 @@
                         <img src="images/showimg4.png" alt="效果图">
                     </div>
                 </div>
-
             </div>
         </div>
     </template>
@@ -295,17 +309,20 @@
                         <h4>弹幕效果JS</h4>
                         <p>让我们上码来分析：</p>
                         <div class="code">
-                            <img src="images/code16.png" alt="代码图" :class="{'active':magnify15}" @click="magnify15=!magnify15">
+                            <img src="images/code16.png" alt="代码图" :class="{'active':magnify15}"
+                                @click="magnify15=!magnify15">
                         </div>
                         <p>上面是HTML结构，非常的简单，一个弹幕区，一个发射区</p>
                         <p>接下来是CSS样式：</p>
                         <div class="code">
-                            <img src="images/code17.png" alt="代码图" :class="{'active':magnify16}" @click="magnify16=!magnify16">
+                            <img src="images/code17.png" alt="代码图" :class="{'active':magnify16}"
+                                @click="magnify16=!magnify16">
                         </div>
                         <p>大家可以把样式设置漂亮一点，我的勉强还能看吧，嘿嘿嘿</p>
                         <p>接下来就是JS了，如果大家发现你写的JS可以更好更简单，可以联系我<a href="#" @click="email">杨先森</a></p>
                         <div class="code">
-                            <img src="images/code18.png" alt="代码图" :class="{'active':magnify17}" @click="magnify17=!magnify17">
+                            <img src="images/code18.png" alt="代码图" :class="{'active':magnify17}"
+                                @click="magnify17=!magnify17">
                         </div>
                         <p>有了JS代码图，我来说说实现原理，首先，我们在input输入内容后，我们先要获取到input中的内容，然后我们需要创建一个span标签，
                             并将input中的内容赋值给span中，然后清空input内容，将span标签插入到弹幕区中去，这样在弹幕区就会有我们的span的内容，
@@ -313,6 +330,93 @@
                             结束后，我们用一个监听，当动画结束后，就立刻删除span标签。
                         </p>
                         <p>至于要记录下弹幕的内容，就是数据库的事情了，在这里我就不多说了。大家快去试试吧！</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="jsShow">
+                    <div class="wrap" @click="flag4=!flag4" :class="{'active':flag4}">
+                        <h3>原生JS黑客帝国</h3>
+                        <p class="blog-post-meta">
+                            2019.08.30 by <a href="#">杨先森</a>
+                        </p>
+                        <p>
+                            昨天，杨先森看了一个做黑客帝国的视频，做出来的效果特别的炫酷，所以今天把这个分享给大家，同时也将我的理解分享给大家。
+                        </p>
+                        <p>首先先看一下效果：</p>
+                        <div class="canvasWrap">
+                            <canvas id="canvas">
+
+                            </canvas>
+                        </div>
+                        <p>接下来就来看一下我是如何实现的。</p>
+                        <div class="jsmain" v-if="flag4">
+                            <h4>代码雨</h4>
+                            <p>HTML与CSS样式都比较简单，在这里就不说了，直接上码：</p>
+                            <pre>
+                                <code>
+    CSS
+    *{
+        margin:0;
+        padding:0;
+    }
+    #canvas{
+        display:block;
+    }
+    HTML
+    &lt;canvas id="canvas"&gt;&lt;/canvas&gt;
+                                </code>
+                            </pre>
+                            <p>接下来就是JS代码了，在JS代码中，我会一一给大家注释：</p>
+                            <pre>
+                                <code>
+    //获取画布
+    var can = document.getElementById("canvas")
+    //声明环境
+    var ctx = can.getContext("2d")
+    var viewWidth, viewHeight
+    //获取视口尺寸
+    function view(){
+        can.width = viewWidth = window.innerWidth
+        can.height = viewHeight = window.innerHeight
+    }
+    view()
+    //这个步骤可以使画布尺寸随视口变化
+    window.onresize = view
+    //创建26字母
+    var text = "QWERTYUIOPLAKSJDHFGMZNXBCV"
+    //字母占的面积
+    var size = 24
+    //计算当前视口可以放多少列字母
+    var num = parseInt(viewWidth/size)
+    //分析：要使字母从上往下落，我们就要不断更新字母的坐标，当字母下落后又重新从上往下，字母的X坐标可以为 size*i
+    var arr = [] 
+    for(var i=0;i&lt;num;i++){
+        //设置坐标y起点
+        arr.push(0)
+    }
+    function draw(){
+        ctx.fillStyle = "rgba(0,0,0,0.1)"   //填充刷黑
+        ctx.fillRect(0,0,viewWidth,viewHeight)  //填充区域
+        ctx.fillStyle = "green" //颜色设置
+        ctx.font = "20px arial" //字体大小
+        for(i=0;i&lt;num;i++){
+            var ox = size*i  //x坐标
+            var oy = arr[i]*size  //y坐标
+            //判断，和增加随机性，使各列的字母随机时间下落
+            if(oy>viewHeight&&Math.random()&gt;0.98){
+                arr[i] = 0
+            }
+            arr[i]++   //使y坐标增加，实现下降
+            var random = Math.floor(Math.random()*text.lenght)
+            //开始填充
+            cxt.fillText(text[random],ox,oy)
+        }
+    }
+    setInterval(draw,50) //设置定时器，循坏
+                                </code>
+                            </pre>
+                            <p>这样，酷炫的黑客帝国效果就实现了。</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -450,41 +554,132 @@
                                 相信这个对于大家来说非常简单，小菜一碟。那么在VUE中，是如何实现的呢。
                             </p>
                         </div>
-                            <div v-if="isChoose3">
-                                <p>首先是我们的html结构：</p>
-                                <div class="code">
-                                    <img src="images/code13.png" alt="代码图" :class="{'active':magnify12}" @click="magnify12=!magnify12"> 
-                                </div>
-                                <p>非常显而易见的HTML结构，在大家了解了vue-router.js后，就应该清楚&lt;router-view&gt;标签的作用了。</p>
-                                <p>接下来，我们一起来瞧瞧Vue到底是如何实现的：</p>
-                                <div class="code">
-                                    <img src="images/code14.png" alt="代码图" :class="{'active':magnify13}" @click="magnify13=!magnify13">
-                                </div>
-                                <p>在VueRouter routes中除了path属性，还是components。</p>
-                                <p>在这里我们来总结一下routes中属性及作用，path表示路由路径，component表示路由对应的组件，redirect表示默认路由路径，components可以一个路径多个组件。</p>
-                                <p>最后在完成布局后，给各个组件添加样式：</p>
-                                <div class="code">
-                                    <img src="images/code15.png" alt="代码图" :class="{'active':magnify14}" @click="magnify14=!magnify14">
-                                </div>
+                        <div v-if="isChoose3">
+                            <p>首先是我们的html结构：</p>
+                            <div class="code">
+                                <img src="images/code13.png" alt="代码图" :class="{'active':magnify12}"
+                                    @click="magnify12=!magnify12">
+                            </div>
+                            <p>非常显而易见的HTML结构，在大家了解了vue-router.js后，就应该清楚&lt;router-view&gt;标签的作用了。</p>
+                            <p>接下来，我们一起来瞧瞧Vue到底是如何实现的：</p>
+                            <div class="code">
+                                <img src="images/code14.png" alt="代码图" :class="{'active':magnify13}"
+                                    @click="magnify13=!magnify13">
+                            </div>
+                            <p>在VueRouter routes中除了path属性，还是components。</p>
+                            <p>在这里我们来总结一下routes中属性及作用，path表示路由路径，component表示路由对应的组件，redirect表示默认路由路径，components可以一个路径多个组件。
+                            </p>
+                            <p>最后在完成布局后，给各个组件添加样式：</p>
+                            <div class="code">
+                                <img src="images/code15.png" alt="代码图" :class="{'active':magnify14}"
+                                    @click="magnify14=!magnify14">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        </div>
     </template>
+    <!-- bootstrap组件 -->
     <template id="temp5">
-
+        <div>
+            <div class="container">
+                <div class="blog-header">
+                    <h2>
+                        Bootstrap
+                    </h2>
+                    <p class="lead blog-description">
+                        来自 Twitter，是目前最受欢迎的前端框架。
+                    </p>
+                </div>
+                <div class="blog-post">
+                    <h3>Bootstrap 栅格系统</h3>
+                    <p class="blog-post-meta">
+                        2019.08.28 by <a href="#">杨先森</a>
+                    </p>
+                    <p>首先先来介绍一下什么是Bootstrap 栅格系统，bootstrap为我们提供了一套完整的流体栅格系统，而且随着屏幕或者视口尺寸的增加，系统自动
+                        分成最多12列，通过类名使用非常方便。
+                    </p>
+                    <p>其原理是采取12列的栅格体系，根据主流设备的尺寸进行分段，每段宽度固定并且浮动，通过百分比和媒体查询实现响应式布局。
+                    </p>
+                    <p>以下是来自bootstrap中文网的工作原理解释：</p>
+                    <blockquote style="font-size: 14px;">
+                        <ul>
+                            <li>“行（row）”必须包含在 .container （固定宽度）或 .container-fluid （100%
+                                宽度）中，以便为其赋予合适的排列（aligment）和内补（padding）。</li>
+                            <li>通过“行（row）”在水平方向创建一组“列（column）”</li>
+                            <li>你的内容应当放置于“列（column）”内，并且，只有“列（column）”可以作为行（row）”的直接子元素。</li>
+                            <li>类似 .row 和 .col-xs-4 这种预定义的类，可以用来快速创建栅格布局。Bootstrap 源码中定义的 mixin 也可以用来创建语义化的布局。</li>
+                            <li>通过为“列（column）”设置 padding 属性，从而创建列与列之间的间隔（gutter）。通过为 .row 元素设置负值 margin 从而抵消掉为
+                                .container 元素设置的 padding，也就间接为“行（row）”所包含的“列（column）”抵消掉了padding。</li>
+                            <li>负值的 margin就是下面的示例为什么是向外突出的原因。在栅格列中的内容排成一行。</li>
+                            <li>栅格系统中的列是通过指定1到12的值来表示其跨越的范围。例如，三个等宽的列可以使用三个 .col-xs-4 来创建。</li>
+                            <li>如果一“行（row）”中包含了的“列（column）”大于 12，多余的“列（column）”所在的元素将被作为一个整体另起一行排列。</li>
+                            <li>栅格类适用于与屏幕宽度大于或等于分界点大小的设备 ， 并且针对小屏幕设备覆盖栅格类。 因此，在元素上应用任何 .col-md-*
+                                栅格类适用于与屏幕宽度大于或等于分界点大小的设备 ， 并且针对小屏幕设备覆盖栅格类。 因此，在元素上应用任何 .col-lg-* 不存在， 也影响大屏幕设备。</li>
+                        </ul>
+                    </blockquote>
+                    <p>在这里同时也放一张图，以便大家理解：</p>
+                    <div class="code">
+                        <img src="images/bootstrap1.png" alt="bootstrap" :class="{'active':magnify19}"
+                            @click="magnify19=!magnify19">
+                    </div>
+                    <p>更多详细的描述，请大家移步去Bootstrap中文网。<a href="https://www.bootcss.com/"
+                            target="_blank">https://www.bootcss.com/</a>。</p>
+                </div>
+            </div>
+        </div>
     </template>
     <script>
-
+        // var router = new VueRouter({
+        //     routes: [
+        //         { path: '/', redirect: '/shouye' },
+        //         { path: '/shouye', component: shouye },
+        //         { path: '/html5', component: html5 },
+        //         { path: '/css', component: css },
+        //         { path: '/js', component: js },
+        //         { path: '/vue', component: vue },
+        //         { path: '/bs', component: bs },
+        //     ]
+        // })
         var shouye = {
-            data:function(){
+            data: function () {
                 return {
-                    magnify18:false
+                    magnify18: false
                 }
             },
-            template: '#temp'
+            template: '#temp',
+            // mounted() {
+            //     var canV = document.getElementById('canvas')
+            //     var ctx = canV.getContext("2d")
+            //     var text = "QWERTYUIOPASFDGHJLZMNXBCV"
+            //     var size = 24
+            //     var num = parseInt(canV.width / size)
+            //     var arr = []
+            //     for (var i = 0; i < num; i++) {//x 坐标 size * i
+            //         //字母下落的起点y坐标 
+            //         arr.push(0)
+            //     }
+            //     function draw() {
+            //         ctx.fillStyle = 'rgba(0,0,0,0.1)'
+            //         ctx.fillRect(0, 0, canV.width, canV.height)//填充整个画布
+            //         ctx.fillStyle = 'green'//填充颜色
+            //         ctx.font = "10px arial"
+            //         for (var i = 0; i < num; i++) {
+            //             var ox = size * i// x 坐标
+            //             var oy = arr[i] * size //y 坐标
+            //             if (oy > canV.height && Math.random() > 0.98) {
+            //                 arr[i] = 0
+            //             }
+            //             arr[i]++
+            //             var random = Math.floor(Math.random() * text.length)
+            //             // console.log(arr)
+            //             ctx.fillText(text[random], ox, oy)
+            //         }
+            //     }
+            //     setInterval(draw, 50)
+            // },
         }
         var html5 = {
             template: '#temp1'
@@ -502,16 +697,47 @@
                     magnify3: false,
                     magnify4: false,
                     flag2: false,
-                    flag3:false,
-                    magnify15:false,
-                    magnify16:false,
-                    magnify17:false,
+                    flag3: false,
+                    magnify15: false,
+                    magnify16: false,
+                    magnify17: false,
+                    flag4: false,
                 }
             },
             template: '#temp3',
+            mounted() {
+                var canV = document.getElementById('canvas')
+                var ctx = canV.getContext("2d")
+                var text = "QWERTYUIOPASFDGHJLZMNXBCV"
+                var size = 24
+                var num = parseInt(canV.width / size)
+                var arr = []
+                for (var i = 0; i < num; i++) {//x 坐标 size * i
+                    //字母下落的起点y坐标 
+                    arr.push(0)
+                }
+                function draw() {
+                    ctx.fillStyle = 'rgba(0,0,0,0.1)'
+                    ctx.fillRect(0, 0, canV.width, canV.height)//填充整个画布
+                    ctx.fillStyle = 'green'//填充颜色
+                    ctx.font = "10px arial"
+                    for (var i = 0; i < num; i++) {
+                        var ox = size * i// x 坐标
+                        var oy = arr[i] * size //y 坐标
+                        if (oy > canV.height && Math.random() > 0.98) {
+                            arr[i] = 0
+                        }
+                        arr[i]++
+                        var random = Math.floor(Math.random() * text.length)
+                        // console.log(arr)
+                        ctx.fillText(text[random], ox, oy)
+                    }
+                }
+                setInterval(draw, 50)
+            },
             methods: {
-                email(){
-                    alert('邮箱：'+ '695249658@qq.com')
+                email() {
+                    alert('邮箱：' + '695249658@qq.com')
                 }
             }
         }
@@ -528,10 +754,10 @@
                     isChoose2: false,
                     isChoose3: false,
                     magnify11: false,
-                    magnify12:false,
+                    magnify12: false,
                     // isChoose4:false,
-                    magnify13:false,
-                    magnify14:false,
+                    magnify13: false,
+                    magnify14: false,
                 }
             },
             template: '#temp4',
@@ -542,6 +768,11 @@
             }
         }
         var bs = {
+            data: function () {
+                return {
+                    magnify19: false,
+                }
+            },
             template: '#temp5'
         }
         var vm = new Vue({
@@ -550,6 +781,259 @@
                 way: shouye,
 
             },
+            // updated(){
+
+
+            //     var canvas = document.getElementById("cas");
+
+            //     var ctx1 = canvas.getContext("2d");
+
+
+
+
+            //     resize();
+
+            //     window.onresize = resize;
+
+
+
+
+            //     function resize() {
+
+            //         canvas.width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+
+            //         canvas.height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+
+            //     }
+
+
+
+
+            //     var RAF = (function () {
+
+            //         return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function (callback) {
+
+            //             window.setTimeout(callback, 1000 / 60);
+
+            //         };
+
+            //     })();
+
+
+
+
+            //     // 鼠标活动时，获取鼠标坐标
+
+            //     var warea = { x: null, y: null, max: 20000 };
+
+            //     window.onmousemove = function (e) {
+
+            //         e = e || window.event;
+
+            //         warea.x = e.clientX;
+
+            //         warea.y = e.clientY;
+
+            //     };
+
+            //     window.onmouseout = function (e) {
+
+            //         warea.x = null;
+
+            //         warea.y = null;
+
+            //     };
+
+
+
+
+            //     // 添加粒子
+
+            //     // x，y为粒子坐标，xa, ya为粒子xy轴加速度，max为连线的最大距离
+
+            //     var dots = [];
+
+            //     for (var i = 0; i < 300; i++) {
+
+            //         var x = Math.random() * canvas.width;
+
+            //         var y = Math.random() * canvas.height;
+
+            //         var xa = Math.random() * 2 - 1;
+
+            //         var ya = Math.random() * 2 - 1;
+
+
+
+
+            //         dots.push({
+
+            //             x: x,
+
+            //             y: y,
+
+            //             xa: xa,
+
+            //             ya: ya,
+
+            //             max: 6000
+
+            //         })
+
+            //     }
+
+
+
+
+            //     // 延迟100秒开始执行动画，如果立即执行有时位置计算会出错
+
+            //     setTimeout(function () {
+
+            //         animate();
+
+            //     }, 100);
+
+
+
+
+            //     // 每一帧循环的逻辑
+
+            //     function animate() {
+
+            //         ctx1.clearRect(0, 0, canvas.width, canvas.height);
+
+
+
+
+            //         // 将鼠标坐标添加进去，产生一个用于比对距离的点数组
+
+            //         var ndots = [warea].concat(dots);
+
+
+
+
+            //         dots.forEach(function (dot) {
+
+
+
+
+            //             // 粒子位移
+
+            //             dot.x += dot.xa;
+
+            //             dot.y += dot.ya;
+
+
+
+
+            //             // 遇到边界将加速度反向
+
+            //             dot.xa *= (dot.x > canvas.width || dot.x < 0) ? -1 : 1;
+
+            //             dot.ya *= (dot.y > canvas.height || dot.y < 0) ? -1 : 1;
+
+
+
+
+            //             // 绘制点
+
+            //             ctx1.fillRect(dot.x - 0.5, dot.y - 0.5, 1, 1);
+
+
+
+
+            //             // 循环比对粒子间的距离
+
+            //             for (var i = 0; i < ndots.length; i++) {
+
+            //                 var d2 = ndots[i];
+
+
+
+
+            //                 if (dot === d2 || d2.x === null || d2.y === null) continue;
+
+
+
+
+            //                 var xc = dot.x - d2.x;
+
+            //                 var yc = dot.y - d2.y;
+
+
+
+
+            //                 // 两个粒子之间的距离
+
+            //                 var dis = xc * xc + yc * yc;
+
+
+
+
+            //                 // 距离比
+
+            //                 var ratio;
+
+
+
+
+            //                 // 如果两个粒子之间的距离小于粒子对象的max值，则在两个粒子间画线
+
+            //                 if (dis < d2.max) {
+
+
+
+
+            //                     // 如果是鼠标，则让粒子向鼠标的位置移动
+
+            //                     if (d2 === warea && dis > (d2.max / 2)) {
+
+            //                         dot.x -= xc * 0.03;
+
+            //                         dot.y -= yc * 0.03;
+
+            //                     }
+
+
+
+
+            //                     // 计算距离比
+
+            //                     ratio = (d2.max - dis) / d2.max;
+
+
+
+
+            //                     // 画线
+
+            //                     ctx1.beginPath();
+
+            //                     ctx1.lineWidth = ratio / 2;
+
+            //                     ctx1.strokeStyle = 'rgba(0,0,0,' + (ratio + 0.2) + ')';
+
+            //                     ctx1.moveTo(dot.x, dot.y);
+
+            //                     ctx1.lineTo(d2.x, d2.y);
+
+            //                     ctx1.stroke();
+
+            //                 }
+
+            //             }
+
+
+
+
+            //             // 将已经计算过的粒子从数组中删除
+
+            //             ndots.splice(ndots.indexOf(dot), 1);
+
+            //         });
+            //         RAF(animate);
+
+            //     }
+            // },
             methods: {
             },
             component: {
@@ -559,7 +1043,8 @@
                 js,
                 vue,
                 bs,
-            }
+            },
+            // router
         })</script>
 </body>
 
