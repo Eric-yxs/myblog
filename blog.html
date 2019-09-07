@@ -627,6 +627,67 @@
                     </div>
                     <p>更多详细的描述，请大家移步去Bootstrap中文网。<a href="https://www.bootcss.com/"
                             target="_blank">https://www.bootcss.com/</a>。</p>
+                            <p>在这里我也做了一些小总结，比如单元格的类如何选择和使用。</p>
+                            <p>单元格一共有四种：</p>
+                            <p>.col-xs-:无论屏幕宽度如何，单元格都在一行,宽度按照百分比设置。</p>
+                            <p>.col-sm-:屏幕大于768px时，单元格在一行显示，小于768px，独占一行。</p>
+                            <p>.col-md-:屏幕大于992px时，单元格在一行显示，小于992px，独占一行。</p>
+                            <p>.col-lg-:屏幕大于1200px时，单元格在一行显示，小于1200px，独占一行。</p>
+                </div>
+                <hr>
+                <div class="blog-post">
+                    <h3>解析：栅格系统中的“15px”</h3>
+                    <p class="blog-post-meta">
+                        2019.09.07 by <a href="#">杨先森</a>
+                    </p>
+                    <p>相信有很多人都和我一样，在运用Bootstrap的时候，在检查时会发现，在栅格系统中的padding,margin出现了大量的15px，那么这15px到底有什么作用呢？</p>
+                    <p>让我们来一步一步解开：</p>
+                    <p>首先是container的padding-left和padding-right的15px。</p>
+                    <p><strong>目的：</strong>为了是其中的内容不紧贴浏览器边缘。</p>
+                    <p>接下来就是row的两侧有margin：-15px。</p>
+                    <p><strong>目的：</strong>这个负margin把row推出了container的15px，使之重叠。</p>
+                    <p>最后是col也有左右两个padding的15px。</p>
+                    <p><strong>目的：</strong>防止col的内容直接接触边界。</p>
+                    <p>也许一些善于思考的同学会发现，我们只是单纯的设置col的padding为15px，就可以达到上述的目的。这个对于常规的row，col，是合理的。</p>
+                    <p>但是对于嵌套列，如何只设置col的padding为15px，就无法正常实现了。</p>
+                    <p>当设置了container，row，col后，如果要在col中嵌套col。首先要把被嵌套的col放到row中，把row放到作为容器的col中，而不需要重新设置一个
+                        container，被嵌套的col就充当了container。而又因为col和container有相同的padding15px，保持了一致性。
+                    </p>
+                    <p>在这个我给大家示范一下：</p>
+                    <pre>
+                        <code>
+   &lt;div class="container"&gt;
+        &lt;div class="row"&gt;
+        &lt;!-- 被嵌套的col，当作container --&gt;
+            &lt;div class="col-sm-4"&gt;
+                &lt;div class="row"&gt;
+                    &lt;div class="col-xs-4" style="background-color:red;height:100px;"&gt;&lt;/div&gt;
+                    &lt;div class="col-xs-4" style="background-color:pink;height:100px;"&gt;&lt;/div&gt;
+                    &lt;div class="col-xs-4" style="background-color:green;height:100px;"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="col-sm-4" style="background-color:blue;height:100px;"&gt;&lt;/div&gt;
+            &lt;div class="col-sm-4" style="background-color:black;height:100px;"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+                        </code>
+                    </pre>
+                    <div class="code">
+                        <img src="images/bs2.png" alt="效果图" :class="{'active':magnify20}" @click="magnify20=!magnify20">
+                    </div>
+                    <p>以上，就是我对栅格系统中15px的分析了。</p>
+                </div> 
+                <hr>
+                <div class="blog-post">
+                    <h3>用Bootstrap做某企业网站</h3>
+                    <p class="blog-post-meta">
+                        2019.09.07 by <a href="#">杨先森</a>
+                    </p>
+                    <p>杨先森经常会去网上找一些实例来练习，就比如下面这个企业网站就是杨先森用bootstrap做出来的，以下是网站部分截图。</p>
+                    <div class="code">
+                        <img src="images/bs3.png" alt="效果图" :class="{'active':magnify21}" @click="magnify21=!magnify21">
+                    </div>
+                    <p>杨先森认为用bootstrap做出来的网站，不仅美观，而且容易上手。是每个前端人员必须掌握的一项技能。</p>
                 </div>
             </div>
         </div>
@@ -771,6 +832,8 @@
             data: function () {
                 return {
                     magnify19: false,
+                    magnify20: false,
+                    magnify21: false,
                 }
             },
             template: '#temp5'
