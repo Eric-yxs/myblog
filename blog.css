@@ -5,6 +5,10 @@
 body {
   font-family: "Microsoft Yahei", "Times New Roman", Times, serif;
   color: #555;
+  background-image: url(images/渐变图1.jpg);
+  background-position:center center;
+  background-repeat:no-repeat;
+  background-size:cover;
 }
 
 h1, .h1,
@@ -36,7 +40,7 @@ h6, .h6 {
  */
 
 .blog-masthead {
-  background-color: #428bca;
+  background-color: #f32ad8;
   -webkit-box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
           box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
 }
@@ -142,7 +146,7 @@ h6, .h6 {
 }
 .blog-post-title {
   margin-bottom: 5px;
-  font-size: 30px;
+  font-size: 20px;
 }
 .blog-post-meta {
   margin-bottom: 20px;
@@ -191,12 +195,12 @@ h6, .h6 {
 }
 
 .littleTitle {
-  font-size: 30px;
+  font-size: 20px;
   font-weight: bold;
 }
 
 .jsShow {
-  width: 70%;
+  width: 90%;
   /* height: 150px; */
   /* transition: 0.3s; */
   border: 1px solid grey;
@@ -312,4 +316,43 @@ p {
 }
 .canvasWrap{
   margin:0 auto;
+}
+ul{
+  padding:1px;
+}
+ul li{
+  /* margin:0 auto; */
+  list-style:none;
+  text-align:center;
+  padding:10px 0px;
+  transition:scale 1s ease;
+}
+li.liHover:hover{
+  background-color:lightblue;
+  transform: scale(1.1)
+}
+.sidenav{
+  position:fixed;
+  top:0;
+  left:0;
+  height:100%;
+  width:0;
+  overflow-x:hidden;
+  transition:0.5s;
+  background-color:#5FFAE0;
+  z-index:999;
+  display: block;
+}
+#pcnav{
+  display: block;
+}
+.closebtn{
+  position:absolute;
+  top:0;
+  right:5px;
+  font-size:30px;
+}
+li a {
+  color:black;
+  text-decoration: none;
 }

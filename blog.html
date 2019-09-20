@@ -11,6 +11,7 @@
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet"> -->
     <script src="vue.min.js"></script>
     <script src="vue-router.js"></script>
+    <!-- <script src="blog.js"></script> -->
 </head>
 
 <body>
@@ -19,6 +20,30 @@
             <!-- 顶部导航栏 -->
             <div class="container">
                 <div class="blog-nav">
+                    <div class="sidenav" id="mySidenav">
+                        <a href="#" class="closebtn" @click="close()">&times;</a>
+                        <ul>
+                            <li>
+                                <img src="images/头像.jpg" alt="头像" style="width:50px;height:50px;border-radius:50%;">
+                            </li>
+                            <li class="liHover">
+                                <strong>Eric</strong>
+                            </li>
+                            <li class="liHover">
+                                <a href="https://github.com/Eric-yxs">Github</a>
+                            </li>
+                            <li class="liHover">
+                                这个地方
+                            </li>
+                            <li class="liHover">
+                                留着以后
+                            </li>
+                            <li class="liHover">
+                                补充
+                            </li>
+                        </ul>
+                    </div>
+                    <span @click="open()" style="font-size:20px;color:white;" id="mySidenav2">&#9776;</span>
                     <a href="#" class="blog-nav-item" @click.prevent="way=shouye">首页</a>
                     <a href="#" class="blog-nav-item" @click.prevent="way=html5">HTML5</a>
                     <a href="#" class="blog-nav-item" @click.prevent="way=css">CSS</a>
@@ -36,11 +61,11 @@
         </div>
         <!-- <router-view></router-view> -->
         <!-- <canvas id="cas" position : absolute;z-index : -1;></canvas> -->
-         <component :is="way">
-                    <!-- <canvas id="cas" position : absolute;z-index : -1;></canvas> -->
+        <component :is="way">
+            <!-- <canvas id="cas" position : absolute;z-index : -1;></canvas> -->
         </component>
-        
-        
+
+
     </div>
     <!-- 首页内容组件 -->
     <template id="temp">
@@ -56,7 +81,29 @@
                     </p>
                 </div>
                 <div class="row">
-                    <div class="col-sm-8 blog-main">
+                    <div class="col-sm-2" id="pcnav">
+                        <ul>
+                            <li class="liHover">
+                                <img src="images/头像.jpg" alt="头像" style="width:50px;height:50px;border-radius:50%;">
+                            </li>
+                            <li class="liHover">
+                                <strong>Eric</strong>
+                            </li>
+                            <li class="liHover">
+                                <strong><a href="https://github.com/Eric-yxs">Github</a></strong>
+                            </li>
+                            <li class="liHover">
+                                <strong>这个地方</strong>
+                            </li>
+                            <li class="liHover">
+                                <strong>留着以后</strong>
+                            </li>
+                            <li class="liHover">
+                                <strong>补充</strong>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 blog-main">
                         <div class="blog-post">
                             <h3 class="blog-title">
                                 这是第一条博客
@@ -627,12 +674,12 @@
                     </div>
                     <p>更多详细的描述，请大家移步去Bootstrap中文网。<a href="https://www.bootcss.com/"
                             target="_blank">https://www.bootcss.com/</a>。</p>
-                            <p>在这里我也做了一些小总结，比如单元格的类如何选择和使用。</p>
-                            <p>单元格一共有四种：</p>
-                            <p>.col-xs-:无论屏幕宽度如何，单元格都在一行,宽度按照百分比设置。</p>
-                            <p>.col-sm-:屏幕大于768px时，单元格在一行显示，小于768px，独占一行。</p>
-                            <p>.col-md-:屏幕大于992px时，单元格在一行显示，小于992px，独占一行。</p>
-                            <p>.col-lg-:屏幕大于1200px时，单元格在一行显示，小于1200px，独占一行。</p>
+                    <p>在这里我也做了一些小总结，比如单元格的类如何选择和使用。</p>
+                    <p>单元格一共有四种：</p>
+                    <p>.col-xs-:无论屏幕宽度如何，单元格都在一行,宽度按照百分比设置。</p>
+                    <p>.col-sm-:屏幕大于768px时，单元格在一行显示，小于768px，独占一行。</p>
+                    <p>.col-md-:屏幕大于992px时，单元格在一行显示，小于992px，独占一行。</p>
+                    <p>.col-lg-:屏幕大于1200px时，单元格在一行显示，小于1200px，独占一行。</p>
                 </div>
                 <hr>
                 <div class="blog-post">
@@ -676,7 +723,7 @@
                         <img src="images/bs2.png" alt="效果图" :class="{'active':magnify20}" @click="magnify20=!magnify20">
                     </div>
                     <p>以上，就是我对栅格系统中15px的分析了。</p>
-                </div> 
+                </div>
                 <hr>
                 <div class="blog-post">
                     <h3>用Bootstrap做某企业网站</h3>
@@ -843,6 +890,15 @@
             data: {
                 way: shouye,
 
+            },
+            mounted() {
+                if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                    var a = document.getElementById("pcnav").style.display = "none"
+
+                } else {
+                    document.getElementById("mySidenav").style.display = "none"
+                    document.getElementById("mySidenav2").style.display = "none"
+                }
             },
             // updated(){
 
@@ -1098,6 +1154,12 @@
             //     }
             // },
             methods: {
+                open() {
+                    document.getElementById("mySidenav").style.width = "25%"
+                },
+                close() {
+                    document.getElementById("mySidenav").style.width = "0"
+                }
             },
             component: {
                 shouye,
@@ -1109,6 +1171,7 @@
             },
             // router
         })</script>
+        <script src="//code.tidio.co/abffurwiyqceyixzziql4ggdorazmirn.js"></script>
 </body>
 
 </html>
