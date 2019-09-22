@@ -22,14 +22,14 @@
                 <div class="blog-nav">
                     <div class="sidenav" id="mySidenav">
                         <a href="#" class="closebtn" @click="close()">&times;</a>
-                        <ul>
-                            <li>
+                        <ul class="ul1">
+                            <li @mouseover.prevent="touxiang1" @mouseout.prevent="noActive=!noActive,isActive=!isActive">
                                 <img src="images/头像.jpg" alt="头像" style="width:50px;height:50px;border-radius:50%;">
                             </li>
-                            <li class="liHover">
+                            <li class="liHover" @mouseover.prevent="Eric1" @mouseout.prevent="noActive=!noActive,isActive=!isActive">
                                 <strong>Eric</strong>
                             </li>
-                            <li class="liHover">
+                            <li class="liHover" @mouseover.prevent="github" @mouseout.prevent="noActive=!noActive,isActive=!isActive">
                                 <a href="https://github.com/Eric-yxs">Github</a>
                             </li>
                             <li class="liHover">
@@ -42,6 +42,11 @@
                                 补充
                             </li>
                         </ul>
+                        <div class="note">
+                            <p :class="{'active':isActive,'current':noActive}">
+                                {{pmsg2}}
+                            </p>
+                        </div>
                     </div>
                     <span @click="open()" style="font-size:20px;color:white;" id="mySidenav2">&#9776;</span>
                     <a href="#" class="blog-nav-item" @click.prevent="way=shouye">首页</a>
@@ -65,7 +70,9 @@
             <!-- <canvas id="cas" position : absolute;z-index : -1;></canvas> -->
         </component>
 
-
+        <footer>
+            <p>Provide by Eric</p>
+        </footer>
     </div>
     <!-- 首页内容组件 -->
     <template id="temp">
@@ -74,7 +81,7 @@
             <div class="container">
                 <div class="blog-header">
                     <h2 class="blog-title">
-                        欢迎来到艾瑞克杨先森的学习基地
+                        <!-- 欢迎来到艾瑞克杨先森的学习基地 -->
                     </h2>
                     <p class="lead blog-description">
                         杨先森是一个零基础自学前端的大学生，我会这里分享一些，我这一年多来，学习前端技术的问题及解决方案。
@@ -82,14 +89,14 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-2" id="pcnav">
-                        <ul>
-                            <li class="liHover">
+                        <ul class="ul1">
+                            <li class="liHover" @mouseover.prevent="touxiang" @mouseout.prevent="noActive=!noActive,isActive=!isActive">
                                 <img src="images/头像.jpg" alt="头像" style="width:50px;height:50px;border-radius:50%;">
                             </li>
-                            <li class="liHover">
+                            <li class="liHover" @mouseover.prevent="Eric" @mouseout.prevent="noActive=!noActive,isActive=!isActive">
                                 <strong>Eric</strong>
                             </li>
-                            <li class="liHover">
+                            <li class="liHover" @mouseover.prevent="github" @mouseout.prevent="noActive=!noActive,isActive=!isActive">
                                 <strong><a href="https://github.com/Eric-yxs">Github</a></strong>
                             </li>
                             <li class="liHover">
@@ -102,6 +109,11 @@
                                 <strong>补充</strong>
                             </li>
                         </ul>
+                        <div class="note">
+                            <p :class="{'active':isActive,'current':noActive}"  >
+                                {{pmsg}}
+                            </p>
+                        </div>
                     </div>
                     <div class="col-sm-6 blog-main">
                         <div class="blog-post">
@@ -176,7 +188,7 @@
         <div>
             <div class="container">
                 <div class="blog-header">
-                    <h2>
+                    <h2 class="blog-title">
                         HyperText Markup Language
                     </h2>
                     <p class="lead blog-description">
@@ -184,7 +196,7 @@
                     </p>
                 </div>
                 <div class="blog-post">
-                    <h3 class="blog-title">学习HTML</h3>
+                    <h3>学习HTML</h3>
                     <p class="blog-post-meta">
                         2019.08.19 by
                         <a href="#">杨先森</a>
@@ -211,7 +223,7 @@
         <div>
             <div class="container">
                 <div class="blog-header">
-                    <h2>
+                    <h2 class="blog-title">
                         CSS3
                     </h2>
                     <p class="lead blog-description">CSS 用于控制网页的样式和布局。</p>
@@ -268,7 +280,7 @@
         <div>
             <div class="container">
                 <div class="blog-header">
-                    <h2>Javascript</h2>
+                    <h2 class="blog-title">Javascript</h2>
                     <p class="blog-description">
                         JavaScript 是 Web 的编程语言。
                     </p>
@@ -474,7 +486,7 @@
         <div>
             <div class="container">
                 <div class="blog-header">
-                    <h2>
+                    <h2 class="blog-title">
                         Vue.js
                     </h2>
                     <p class="lead blog-description">
@@ -633,7 +645,7 @@
         <div>
             <div class="container">
                 <div class="blog-header">
-                    <h2>
+                    <h2 class="blog-title">
                         Bootstrap
                     </h2>
                     <p class="lead blog-description">
@@ -652,7 +664,7 @@
                     </p>
                     <p>以下是来自bootstrap中文网的工作原理解释：</p>
                     <blockquote style="font-size: 14px;">
-                        <ul>
+                        <ul class="ul2">
                             <li>“行（row）”必须包含在 .container （固定宽度）或 .container-fluid （100%
                                 宽度）中，以便为其赋予合适的排列（aligment）和内补（padding）。</li>
                             <li>通过“行（row）”在水平方向创建一组“列（column）”</li>
@@ -754,46 +766,88 @@
         var shouye = {
             data: function () {
                 return {
-                    magnify18: false
+                    magnify18: false,
+                    pmsg:'我的帅照',
+                    isActive:false,
+                    noActive:true,
+                    
                 }
             },
             template: '#temp',
-            // mounted() {
-            //     var canV = document.getElementById('canvas')
-            //     var ctx = canV.getContext("2d")
-            //     var text = "QWERTYUIOPASFDGHJLZMNXBCV"
-            //     var size = 24
-            //     var num = parseInt(canV.width / size)
-            //     var arr = []
-            //     for (var i = 0; i < num; i++) {//x 坐标 size * i
-            //         //字母下落的起点y坐标 
-            //         arr.push(0)
-            //     }
-            //     function draw() {
-            //         ctx.fillStyle = 'rgba(0,0,0,0.1)'
-            //         ctx.fillRect(0, 0, canV.width, canV.height)//填充整个画布
-            //         ctx.fillStyle = 'green'//填充颜色
-            //         ctx.font = "10px arial"
-            //         for (var i = 0; i < num; i++) {
-            //             var ox = size * i// x 坐标
-            //             var oy = arr[i] * size //y 坐标
-            //             if (oy > canV.height && Math.random() > 0.98) {
-            //                 arr[i] = 0
-            //             }
-            //             arr[i]++
-            //             var random = Math.floor(Math.random() * text.length)
-            //             // console.log(arr)
-            //             ctx.fillText(text[random], ox, oy)
-            //         }
-            //     }
-            //     setInterval(draw, 50)
-            // },
+            created(){
+                
+            },
+            mounted() {
+                if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                    document.getElementById("pcnav").style.display = "none"
+                }
+                var postTitle = document.querySelector('.blog-title')
+                var typingbefore = '欢迎来到艾瑞克杨先森的学习基地'
+                var _i = 0
+                function typetitle() {
+                    if (_i <= typingbefore.length) {
+                        postTitle.innerHTML = typingbefore.slice(0,_i++)
+                        setTimeout(typetitle, 120)
+                    } 
+                    else {
+                        postTitle.innerHTML = typingbefore
+                    }
+                }
+                typetitle()
+            },
+            methods:{
+                Eric(){
+                    this.pmsg = '艾瑞克'
+                    this.noActive =! this.noActive
+                    this.isActive =! this.isActive
+                },
+                touxiang(){
+                    this.pmsg = "我的帅照"
+                    this.noActive =! this.noActive
+                    this.isActive =! this.isActive
+                },
+                github(){
+                    this.pmsg = "点击前往github"
+                    this.noActive =! this.noActive
+                    this.isActive =! this.isActive
+                }
+            }
         }
         var html5 = {
-            template: '#temp1'
+            template: '#temp1',
+            mounted(){
+                var postTitle = document.querySelector('.blog-title')
+                var typingbefore = 'HyperText Markup Language'
+                var _i = 0
+                function typetitle() {
+                    if (_i <= typingbefore.length) {
+                        postTitle.innerHTML = typingbefore.slice(0,_i++)
+                        setTimeout(typetitle, 120)
+                    } 
+                    else {
+                        postTitle.innerHTML = typingbefore
+                    }
+                }
+                typetitle()
+            }
         }
         var css = {
-            template: '#temp2'
+            template: '#temp2',
+            mounted(){
+                var postTitle = document.querySelector('.blog-title')
+                var typingbefore = 'CSS'
+                var _i = 0
+                function typetitle() {
+                    if (_i <= typingbefore.length) {
+                        postTitle.innerHTML = typingbefore.slice(0,_i++)
+                        setTimeout(typetitle, 120)
+                    } 
+                    else {
+                        postTitle.innerHTML = typingbefore
+                    }
+                }
+                typetitle()
+            }
         }
         var js = {
             data: function () {
@@ -814,6 +868,19 @@
             },
             template: '#temp3',
             mounted() {
+                var postTitle = document.querySelector('.blog-title')
+                var typingbefore = 'Javascript'
+                var _i = 0
+                function typetitle() {
+                    if (_i <= typingbefore.length) {
+                        postTitle.innerHTML = typingbefore.slice(0,_i++)
+                        setTimeout(typetitle, 120)
+                    } 
+                    else {
+                        postTitle.innerHTML = typingbefore
+                    }
+                }
+                typetitle()
                 var canV = document.getElementById('canvas')
                 var ctx = canV.getContext("2d")
                 var text = "QWERTYUIOPASFDGHJLZMNXBCV"
@@ -868,6 +935,21 @@
                     magnify14: false,
                 }
             },
+            mounted(){
+                var postTitle = document.querySelector('.blog-title')
+                var typingbefore = 'Vue.js'
+                var _i = 0
+                function typetitle() {
+                    if (_i <= typingbefore.length) {
+                        postTitle.innerHTML = typingbefore.slice(0,_i++)
+                        setTimeout(typetitle, 120)
+                    } 
+                    else {
+                        postTitle.innerHTML = typingbefore
+                    }
+                }
+                typetitle()
+            },
             template: '#temp4',
             methods: {
                 email() {
@@ -883,12 +965,30 @@
                     magnify21: false,
                 }
             },
-            template: '#temp5'
+            template: '#temp5',
+            mounted(){
+                var postTitle = document.querySelector('.blog-title')
+                var typingbefore = 'Bootstrap'
+                var _i = 0
+                function typetitle() {
+                    if (_i <= typingbefore.length) {
+                        postTitle.innerHTML = typingbefore.slice(0,_i++)
+                        setTimeout(typetitle, 120)
+                    } 
+                    else {
+                        postTitle.innerHTML = typingbefore
+                    }
+                }
+                typetitle()
+            }
         }
         var vm = new Vue({
             el: '#app',
             data: {
                 way: shouye,
+                isActive:false,
+                noActive:true,
+                pmsg2:''
 
             },
             mounted() {
@@ -900,265 +1000,27 @@
                     document.getElementById("mySidenav2").style.display = "none"
                 }
             },
-            // updated(){
-
-
-            //     var canvas = document.getElementById("cas");
-
-            //     var ctx1 = canvas.getContext("2d");
-
-
-
-
-            //     resize();
-
-            //     window.onresize = resize;
-
-
-
-
-            //     function resize() {
-
-            //         canvas.width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-
-            //         canvas.height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-
-            //     }
-
-
-
-
-            //     var RAF = (function () {
-
-            //         return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function (callback) {
-
-            //             window.setTimeout(callback, 1000 / 60);
-
-            //         };
-
-            //     })();
-
-
-
-
-            //     // 鼠标活动时，获取鼠标坐标
-
-            //     var warea = { x: null, y: null, max: 20000 };
-
-            //     window.onmousemove = function (e) {
-
-            //         e = e || window.event;
-
-            //         warea.x = e.clientX;
-
-            //         warea.y = e.clientY;
-
-            //     };
-
-            //     window.onmouseout = function (e) {
-
-            //         warea.x = null;
-
-            //         warea.y = null;
-
-            //     };
-
-
-
-
-            //     // 添加粒子
-
-            //     // x，y为粒子坐标，xa, ya为粒子xy轴加速度，max为连线的最大距离
-
-            //     var dots = [];
-
-            //     for (var i = 0; i < 300; i++) {
-
-            //         var x = Math.random() * canvas.width;
-
-            //         var y = Math.random() * canvas.height;
-
-            //         var xa = Math.random() * 2 - 1;
-
-            //         var ya = Math.random() * 2 - 1;
-
-
-
-
-            //         dots.push({
-
-            //             x: x,
-
-            //             y: y,
-
-            //             xa: xa,
-
-            //             ya: ya,
-
-            //             max: 6000
-
-            //         })
-
-            //     }
-
-
-
-
-            //     // 延迟100秒开始执行动画，如果立即执行有时位置计算会出错
-
-            //     setTimeout(function () {
-
-            //         animate();
-
-            //     }, 100);
-
-
-
-
-            //     // 每一帧循环的逻辑
-
-            //     function animate() {
-
-            //         ctx1.clearRect(0, 0, canvas.width, canvas.height);
-
-
-
-
-            //         // 将鼠标坐标添加进去，产生一个用于比对距离的点数组
-
-            //         var ndots = [warea].concat(dots);
-
-
-
-
-            //         dots.forEach(function (dot) {
-
-
-
-
-            //             // 粒子位移
-
-            //             dot.x += dot.xa;
-
-            //             dot.y += dot.ya;
-
-
-
-
-            //             // 遇到边界将加速度反向
-
-            //             dot.xa *= (dot.x > canvas.width || dot.x < 0) ? -1 : 1;
-
-            //             dot.ya *= (dot.y > canvas.height || dot.y < 0) ? -1 : 1;
-
-
-
-
-            //             // 绘制点
-
-            //             ctx1.fillRect(dot.x - 0.5, dot.y - 0.5, 1, 1);
-
-
-
-
-            //             // 循环比对粒子间的距离
-
-            //             for (var i = 0; i < ndots.length; i++) {
-
-            //                 var d2 = ndots[i];
-
-
-
-
-            //                 if (dot === d2 || d2.x === null || d2.y === null) continue;
-
-
-
-
-            //                 var xc = dot.x - d2.x;
-
-            //                 var yc = dot.y - d2.y;
-
-
-
-
-            //                 // 两个粒子之间的距离
-
-            //                 var dis = xc * xc + yc * yc;
-
-
-
-
-            //                 // 距离比
-
-            //                 var ratio;
-
-
-
-
-            //                 // 如果两个粒子之间的距离小于粒子对象的max值，则在两个粒子间画线
-
-            //                 if (dis < d2.max) {
-
-
-
-
-            //                     // 如果是鼠标，则让粒子向鼠标的位置移动
-
-            //                     if (d2 === warea && dis > (d2.max / 2)) {
-
-            //                         dot.x -= xc * 0.03;
-
-            //                         dot.y -= yc * 0.03;
-
-            //                     }
-
-
-
-
-            //                     // 计算距离比
-
-            //                     ratio = (d2.max - dis) / d2.max;
-
-
-
-
-            //                     // 画线
-
-            //                     ctx1.beginPath();
-
-            //                     ctx1.lineWidth = ratio / 2;
-
-            //                     ctx1.strokeStyle = 'rgba(0,0,0,' + (ratio + 0.2) + ')';
-
-            //                     ctx1.moveTo(dot.x, dot.y);
-
-            //                     ctx1.lineTo(d2.x, d2.y);
-
-            //                     ctx1.stroke();
-
-            //                 }
-
-            //             }
-
-
-
-
-            //             // 将已经计算过的粒子从数组中删除
-
-            //             ndots.splice(ndots.indexOf(dot), 1);
-
-            //         });
-            //         RAF(animate);
-
-            //     }
-            // },
             methods: {
                 open() {
                     document.getElementById("mySidenav").style.width = "25%"
                 },
                 close() {
                     document.getElementById("mySidenav").style.width = "0"
+                },
+                touxiang1(){
+                    this.pmsg2 = "我的帅照"
+                    this.isActive =! this.isActive
+                    this.noActive =! this.noActive
+                },
+                Eric1(){
+                    this.pmsg2 = "艾瑞克"
+                    this.isActive =! this.isActive
+                    this.noActive =! this.noActive
+                },
+                github(){
+                    this.pmsg2 = "点击前往github"
+                    this.isActive =! this.isActive
+                    this.noActive =! this.noActive
                 }
             },
             component: {
@@ -1171,7 +1033,7 @@
             },
             // router
         })</script>
-        <script src="//code.tidio.co/abffurwiyqceyixzziql4ggdorazmirn.js"></script>
+
 </body>
 
 </html>

@@ -87,10 +87,11 @@ h6, .h6 {
   padding-bottom: 20px;
 }
 .blog-title {
-  margin-top: 30px;
-  margin-bottom: 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
   font-size: 40px;
   font-weight: normal;
+  transition:all 1s ease;
 }
 .blog-description {
   font-size: 20px;
@@ -317,19 +318,30 @@ p {
 .canvasWrap{
   margin:0 auto;
 }
-ul{
+.ul1{
   padding:1px;
 }
-ul li{
+.ul1 li{
   /* margin:0 auto; */
   list-style:none;
   text-align:center;
+  /* text-indent:2em; */
   padding:10px 0px;
   transition:scale 1s ease;
 }
 li.liHover:hover{
   background-color:lightblue;
   transform: scale(1.1)
+}
+.ul2{
+  margin-left:-5px;
+}
+.ul2 li{
+  /* padding:1px; */
+  text-indent:2em;
+  list-style:none;
+  margin-top:5px;
+  /* margin-left:-5px; */
 }
 .sidenav{
   position:fixed;
@@ -355,4 +367,29 @@ li.liHover:hover{
 li a {
   color:black;
   text-decoration: none;
+}
+footer{
+  height:50px;
+  width:100%;
+  text-align:center;
+  line-height:50px;
+  /* background-color: */
+}
+.note p.current{
+  display: none;
+}
+.note p.active{
+  height:20px;
+  width:80%;
+  margin:5px auto;
+  text-align:center;
+  display: block;
+  font-size:12px;
+  line-height:20px;
+  text-indent:0;
+  border:1px solid pink;
+  border-radius:20%;
+  -webkit-box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
+          box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
+  color:black;
 }
