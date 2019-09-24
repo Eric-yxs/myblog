@@ -21,6 +21,7 @@
             <div class="container">
                 <div class="blog-nav">
                     <div class="sidenav" id="mySidenav">
+                        <!-- 移动端左侧栏 -->
                         <a href="#" class="closebtn" @click="close()">&times;</a>
                         <ul class="ul1">
                             <li @mouseover.prevent="touxiang1" @mouseout.prevent="noActive=!noActive,isActive=!isActive">
@@ -64,20 +65,16 @@
                 </div>
             </div>
         </div>
-        <!-- <router-view></router-view> -->
-        <!-- <canvas id="cas" position : absolute;z-index : -1;></canvas> -->
         <component :is="way">
-            <!-- <canvas id="cas" position : absolute;z-index : -1;></canvas> -->
         </component>
 
         <footer>
-            <p>Provide by Eric</p>
+            <p>Provided by Eric</p>
         </footer>
     </div>
     <!-- 首页内容组件 -->
     <template id="temp">
         <div>
-            <!-- <canvas id="canvas"> -->
             <div class="container">
                 <div class="blog-header">
                     <h2 class="blog-title">
@@ -88,6 +85,7 @@
                     </p>
                 </div>
                 <div class="row">
+                    <!-- PC端左侧栏 -->
                     <div class="col-sm-2" id="pcnav">
                         <ul class="ul1">
                             <li class="liHover" @mouseover.prevent="touxiang" @mouseout.prevent="noActive=!noActive,isActive=!isActive">
@@ -115,6 +113,7 @@
                             </p>
                         </div>
                     </div>
+                    <!-- 博客主要内容 -->
                     <div class="col-sm-6 blog-main">
                         <div class="blog-post">
                             <h3 class="blog-title">
@@ -148,6 +147,7 @@
                             <p>这还只是一部分，每一部分都是我成为程序员的阶梯。</p>
                         </div>
                     </div>
+                    <!-- 右侧栏内容 -->
                     <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
                         <div class="sidebar-module sidebar-module-inset">
                             <h4>关于</h4>
@@ -179,7 +179,6 @@
                     </div>
                 </div>
             </div>
-            <!-- </canvas> -->
         </div>
 
     </template>
@@ -195,6 +194,7 @@
                         超文本标记语言是一种用于创建网页的标准标记语言。
                     </p>
                 </div>
+                <!-- 博客主要内容区 -->
                 <div class="blog-post">
                     <h3>学习HTML</h3>
                     <p class="blog-post-meta">
@@ -212,8 +212,6 @@
                     <p><strong>3</strong>:&lt;!doctype html&gt; 声明必须位于 HTML5 文档中的第一行,使用非常简单</p>
                     <p><strong>4</strong>:HTML 大小写不敏感，不区分大小写，也就是说大小写都不影响。但根据W3C的规范写法，一般使用小写。</p>
                     <p>同时在这里补充一下:CSS大小写不敏感，也不区分大小写。但根据W3C的规范写法，一般使用小写。JavaScript 对大小写非常敏感，一定要区分大小写。</p>
-                    <!-- <iframe width="100%" height="300" src="https://c.runoob.com/iframe/3129"
-                        allowfullscreen="allowfullscreen" frameborder="0"></iframe> -->
                 </div>
             </div>
         </div>
@@ -228,6 +226,7 @@
                     </h2>
                     <p class="lead blog-description">CSS 用于控制网页的样式和布局。</p>
                 </div>
+                <!-- 博客主要内容区 -->
                 <div class="blog-post">
                     <h3>学习CSS3</h3>
                     <p class="blog-post-meta">
@@ -285,6 +284,7 @@
                         JavaScript 是 Web 的编程语言。
                     </p>
                 </div>
+                <!-- 博客主要内容区 -->
                 <div class="jsShow">
                     <div @click="flag=!flag" class="wrap" :class="{'active':flag}">
                         <h3>接触的第一个JS</h3>
@@ -294,7 +294,7 @@
                         <p>刚接触JS时，尽管是一个容易的逻辑，但还是难倒我一段时间，各种查资料，百度看解析，到最后解决问题，还是非常有成就感的，我相信很多自学的同学也会有同样的感受。<br>
                             那么话不多说，一起来看看我的第一个JS代码是什么吧！这是一篇技术文！！！</p>
                     </div>
-                    <!-- 通过动画实现下拉内容 -->
+                    <!-- 通过动画实现下拉内容,transition 有过渡效果，不加没有-->
                     <transition>
                         <div class="jsmain" v-if="flag">
                             <h4>第一个JS任务</h4>
@@ -332,6 +332,7 @@
                 </div>
                 <hr>
                 <div class="jsShow">
+                    <!-- 无transition -->
                     <div class="wrap" @click="flag2=!flag2" :class="{'active':flag2}">
                         <h3>运用JS制作相册</h3>
                         <p class="blog-post-meta">
@@ -493,6 +494,7 @@
                         一套用于构建用户界面的渐进式框架。
                     </p>
                 </div>
+                <!-- 博客主要内容区 -->
                 <div>
                     <h3>这是一个基于Vue.js建成的网站！</h3>
                     <p class="blog-post-meta">
@@ -777,7 +779,7 @@
             created(){
                 
             },
-            mounted() {
+            mounted() {//判断是移动端还是PC端
                 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
                     document.getElementById("pcnav").style.display = "none"
                 }
@@ -796,6 +798,7 @@
                 typetitle()
             },
             methods:{
+                // 鼠标移过侧栏内容，下方展示内容
                 Eric(){
                     this.pmsg = '艾瑞克'
                     this.noActive =! this.noActive
@@ -815,7 +818,7 @@
         }
         var html5 = {
             template: '#temp1',
-            mounted(){
+            mounted(){//字节跳动
                 var postTitle = document.querySelector('.blog-title')
                 var typingbefore = 'HyperText Markup Language'
                 var _i = 0
@@ -833,7 +836,7 @@
         }
         var css = {
             template: '#temp2',
-            mounted(){
+            mounted(){//字节跳动
                 var postTitle = document.querySelector('.blog-title')
                 var typingbefore = 'CSS'
                 var _i = 0
@@ -867,7 +870,7 @@
                 }
             },
             template: '#temp3',
-            mounted() {
+            mounted() {//字节跳动
                 var postTitle = document.querySelector('.blog-title')
                 var typingbefore = 'Javascript'
                 var _i = 0
@@ -881,6 +884,7 @@
                     }
                 }
                 typetitle()
+                // 这是JS中黑客帝国的展示
                 var canV = document.getElementById('canvas')
                 var ctx = canV.getContext("2d")
                 var text = "QWERTYUIOPASFDGHJLZMNXBCV"
@@ -935,7 +939,7 @@
                     magnify14: false,
                 }
             },
-            mounted(){
+            mounted(){//字节跳动
                 var postTitle = document.querySelector('.blog-title')
                 var typingbefore = 'Vue.js'
                 var _i = 0
@@ -966,7 +970,7 @@
                 }
             },
             template: '#temp5',
-            mounted(){
+            mounted(){//字节跳动
                 var postTitle = document.querySelector('.blog-title')
                 var typingbefore = 'Bootstrap'
                 var _i = 0
@@ -991,16 +995,19 @@
                 pmsg2:''
 
             },
-            mounted() {
+            mounted() {//判断是移动端还是PC端
                 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
                     var a = document.getElementById("pcnav").style.display = "none"
+                    // 移动端
 
                 } else {
                     document.getElementById("mySidenav").style.display = "none"
                     document.getElementById("mySidenav2").style.display = "none"
+                    //PC端
                 }
             },
             methods: {
+                // 移动端侧栏的JS 
                 open() {
                     document.getElementById("mySidenav").style.width = "25%"
                 },
@@ -1033,7 +1040,8 @@
             },
             // router
         })</script>
-
+        // Tidio chat
+        <script src="//code.tidio.co/abffurwiyqceyixzziql4ggdorazmirn.js"></script>
 </body>
 
 </html>

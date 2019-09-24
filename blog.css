@@ -361,8 +361,8 @@ li.liHover:hover{
 .closebtn{
   position:absolute;
   top:0;
-  right:5px;
-  font-size:30px;
+  right:2%;
+  font-size:2rem;
 }
 li a {
   color:black;
@@ -374,6 +374,12 @@ footer{
   text-align:center;
   line-height:50px;
   /* background-color: */
+}
+footer p{
+  text-indent:0;
+  font-weight:bold;
+  color:red;
+
 }
 .note p.current{
   display: none;
